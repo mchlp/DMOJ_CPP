@@ -3,4 +3,4 @@ project(DMOJ_CPP)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(DMOJ_CPP main.cpp)
+add_executable(DMOJ_CPP CCC/ccc96s2.cpp)

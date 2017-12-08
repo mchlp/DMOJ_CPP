@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/DMOJ_CPP.dir/main.cpp.o  -o DMOJ_CPP 

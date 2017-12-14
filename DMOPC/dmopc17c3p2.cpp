@@ -1,83 +1,27 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-int arr[100000];
 int order[1000000];
 int ordC = 0;
-bool done;
+int arr[100000];
 
-bool flip(int n, int max);
-
-bool check(int max) {
-    bool fin = true;
-    for (int i = 0; i < max; i++) {
-        if (arr[i] == 1) {
-            fin = false;
-        }
+void flip(int num, int max) {
+    if (num > 0) {
+        arr[num - 1] = arr[num - 1] == 0 ? 1 : 0;
     }
-    return fin;
-}
-
-bool flip(int n, int max) {
-    if (n > 0) {
-        arr[n - 1] = arr[n - 1] == 0 ? 1 : 0;
+    if (num < max-1) {
+        arr[num + 1] = arr[num + 1] == 0 ? 1 : 0;
     }
-    if (n < max - 1) {
-        arr[n + 1] = arr[n + 1] == 0 ? 1 : 0;
-    }
-    arr[n] = arr[n] == 0 ? 1 : 0;
-    order[ordC] = n + 1;
+    arr[num] = arr[num] == 0 ? 1 : 0;
+    order[ordC] = num+1;
     ordC++;
 
-    bool c = check(max);
-    /*
-    for (int i = 0; i < max; i++) {
+/*
+    printf("%d - ", num);
+    for (int i=0; i<max; i++) {
         printf("%d ", arr[i]);
     }
-    printf("\n %d \n", c);
-     */
-
-    return c;
-
-}
-
-bool findThree(int max) {
-    bool fin = true;
-    for (int i = 0; i < max; i++) {
-        if (arr[i] == 1) {
-            if (arr[i] == 1 && arr[i + 1] == 1 && arr[i + 2] == 1) {
-                flip(i + 1, max);
-            }
-        }
-    }
-    return check(max);
-}
-
-void x(int n) {
-    done = false;
-
-    while (!done) {
-
-        for (int i = 0; i < n; i++) {
-            if (arr[i] == 1) {
-                int j = i;
-                while (j < n) {
-                    if (flip(j, n)) {
-                        return;
-                    }
-                    if (findThree(n)) {
-                        return;
-                    }
-                    j++;
-                }
-            }
-        }
-
-        if (ordC >= 1000000) {
-            return;
-        }
-    }
+    printf("\n");*/
 }
 
 int main() {
@@ -94,6 +38,23 @@ int main() {
     printf("%d\n", ordC);
 
     for (int i = 0; i < ordC; i++) {
+    do {
+
+        for (int i=0; i<n-1; i++) {
+            if (arr[i] == 1) {
+                flip(i + 1, n);
+            }
+        }
+
+        if (arr[n-1] == 1) {
+            flip(0, n);
+        }
+
+    } while (arr[n-1] == 1);
+
+    printf("%d\n", ordC);
+
+    for (int i=0; i<ordC; i++) {
         printf("%d\n", order[i]);
     }
 }

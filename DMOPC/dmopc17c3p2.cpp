@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
 int order[1000000];
 int ordC = 0;
 int arr[100000];
@@ -27,17 +28,12 @@ void flip(int num, int max) {
 int main() {
     int n;
     scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
+
+    for(int i=0; i<n; i++) {
         int c;
         scanf("%d", &c);
         arr[i] = c;
     }
-
-    x(n);
-
-    printf("%d\n", ordC);
-
-    for (int i = 0; i < ordC; i++) {
     do {
 
         for (int i=0; i<n-1; i++) {

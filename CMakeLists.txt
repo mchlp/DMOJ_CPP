@@ -3,4 +3,4 @@ project(DMOJ_CPP)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(DMOJ_CPP ECOO/test.cpp)
+add_executable(DMOJ_CPP Other/rte16s3.cpp)

@@ -13,7 +13,7 @@ int main() {
     int keys[1000][1000];
     char map[1000][1000];
     pair<pair<int, int>, int> start;
-    deque<pair<pair<int, int>, int>> queue;
+    deque<pair<pair<int, int>, int> > queue;
 
     int N = 10;
     while (N--) {

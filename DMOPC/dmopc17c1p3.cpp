@@ -5,12 +5,12 @@ using namespace std;
 typedef pair<int, int> pii;
 
 vector<pii> graph[100001];
-int dis[100001];
+long long dis[100001];
 
 int main() {
 
     for (int i=0; i<100001; i++) {
-        dis[i] = INT_MAX;
+        dis[i] = LONG_LONG_MAX;
     }
 
     int N, M;
@@ -22,7 +22,7 @@ int main() {
         pii ap, bp;
         ap.first = a;
         bp.first = b;
-        w = w == 0 ? 1 : 100000;
+        w = w == 0 ? 1 : 1000000;
         ap.second = w;
         bp.second = w;
         graph[a].push_back(bp);
@@ -34,7 +34,7 @@ int main() {
     dis[1] = 0;
     while (!q.empty()) {
         int cur = q.front();
-        int curDis = dis[cur];
+        long curDis = dis[cur];
         q.pop();
 
         for (int i=0; i<graph[cur].size(); i++) {
@@ -45,10 +45,10 @@ int main() {
         }
     }
 
-    if (dis[N] == INT_MAX) {
+    if (dis[N] == LONG_LONG_MAX) {
         printf("-1");
     } else {
-        printf("%d %d", dis[N] / 100000, dis[N] % 100000 + dis[N] / 100000);
+        printf("%lld %lld", dis[N] / 1000000, dis[N] % 1000000 + dis[N] / 1000000);
     }
 
     return 0;

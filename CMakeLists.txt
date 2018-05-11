@@ -3,4 +3,4 @@ project(DMOJ_CPP)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(DMOJ_CPP Other/lucastower.cpp)
+add_executable(DMOJ_CPP DMOPC/dmpg18s2.cpp)
